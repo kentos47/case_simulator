@@ -64,6 +64,37 @@ class Weapon_Skin : public Skin {
         std::string get_rarity() {return rarity_;};
 };
 
+class Knife_Skin : public Skin {
+    private:
+        std::string type_;
+        double skin_float_;
+    public:
+        Knife_Skin(
+            std::string name,
+            std::string type,
+            double skin_float,
+            double price) :
+        Skin(std::move(name), price),
+        type_(std::move(type)),
+        skin_float_(skin_float) {}
+        
+        std::string get_type() override {return type_;};
+        double get_price() override {return price_;};
+        std::string get_options_to_interuct() override {return "-Использовать в контракте (Скоро)\n-Выбрать за сторону\n-Продать\n";};
+        std::string get_info() override {
+            std::string worness;
+            if (skin_float_ < 0.07){worness = "Factory New";}
+            else if (skin_float_ < 0.15){worness = "Minimal Wear";}
+            else if (skin_float_ < 0.38){worness = "Field-Tested";}
+            else if (skin_float_ < 0.45){worness = "Well-Worn";}
+            else {worness = "Battle-Scarred";}
+            
+            return std::format("${:.2f}", price_)+" * "+type_+
+            " | "+name_+", "+worness;}
+            
+        double get_float() {return skin_float_;};
+};
+
 struct SkinData {
     std::string name;
     std::string type;
@@ -74,3 +105,12 @@ struct SkinData {
 };
 
 extern std::vector<SkinData> skin_database;
+
+struct KnifeSkinData {
+    std::string name;
+    std::string type;
+    double skin_float;
+    double price;
+};
+
+extern std::vector<KnifeSkinData> knife_database;
