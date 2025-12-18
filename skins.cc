@@ -54,3 +54,8 @@ std::vector<SkinData> skin_database = {
     "Mil-Spec",
     0.51, 13.48}
 };
+
+std::vector<KnifeSkinData> knife_database = {
+    {"Crimson Web", "M9 Bayonet",
+    0.33, 521.36}
+};
