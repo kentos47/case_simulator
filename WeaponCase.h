@@ -9,13 +9,9 @@ class WeaponCase : public Container {
 
     public:
     WeaponCase(std::string name, double price);
-
-    std::unique_ptr<Container> clone() override;
-
     std::unique_ptr<Item> selectItem() override;
-
-    void addWeapon(std::unique_ptr<Item> skin);
-
+    void addWeapon(std::unique_ptr<Weapon_Skin> skin);
+    WeaponCase& operator +=(std::unique_ptr<Weapon_Skin>);
 };
 
 #endif 
