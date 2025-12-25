@@ -5,7 +5,6 @@
 #include <memory>      
 #include <random>
 #include <string>
-
 #include "Item.h"
 
 class Container {
@@ -25,10 +24,6 @@ public:
     virtual std::unique_ptr<Item> open();
     virtual void addItem(std::unique_ptr<Item> skin);
     virtual void displayContents();
-
-    virtual std::unique_ptr<Container> clone() = 0;
-
-    virtual bool operator==(Container& other);
     virtual Container& operator+=(std::unique_ptr<Item> item);
 };
 
