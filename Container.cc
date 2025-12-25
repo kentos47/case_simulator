@@ -46,10 +46,6 @@ void Container::displayContents() {
     }
 }
 
-bool Container::operator==(Container& other) {
-    return name_ == other.name_ && price_ == other.price_;
-}
-
 Container& Container::operator+=(std::unique_ptr<Item> item) {
     addItem(std::move(item));
     return *this;
