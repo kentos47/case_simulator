@@ -3,21 +3,17 @@
 #include <iostream>
 #include <limits>
 #include <stdexcept>
-#include <iomanip>
-
 
 void initCase(Container* container) {
-    for (auto& skinData : skin_database) {
+    for (int i = 0; i < skin_database.size(); ++i) {
+        WeaponSkinData& skinData = skin_database[i];
         auto skin = std::make_unique<Weapon_Skin>(
-            skinData.name, 
-            skinData.type, 
-            skinData.rarity, 
-            skinData.skin_float, 
-            skinData.price
-        );
+            skinData.name, skinData.type, skinData.rarity,
+            skinData.skin_float, skinData.price);
         container->addItem(std::move(skin));
     }
 }
+
 
 GameSimulator::GameSimulator() 
     : shop_(std::make_unique<Shop>()), 
@@ -209,5 +205,5 @@ void GameSimulator::run() {
                 std::cout << "Invalid choice!\n";
             }
     }
-
 }
+
