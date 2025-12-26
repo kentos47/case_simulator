@@ -167,8 +167,6 @@ void GameSimulator::run() {
         int choice;
         std::cin >> choice;
         
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        
 
         switch (choice) {
             case 1:
@@ -205,3 +203,4 @@ void GameSimulator::run() {
             }
     }
 }
+
