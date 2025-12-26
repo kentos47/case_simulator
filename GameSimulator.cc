@@ -208,8 +208,6 @@ void GameSimulator::run() {
             default:
                 std::cout << "Invalid choice!\n";
             }
-        
-        // std::cout << "\nPress Enter to continue...";
-        // std::cin.get();
     }
+
 }
