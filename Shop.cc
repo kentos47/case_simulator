@@ -30,3 +30,4 @@ int Shop::getContainerCount() const {
     return available_containers_.size();
 }
 
+
