@@ -54,7 +54,7 @@ void GameSimulator::openSingleCase() {
         std::cout << "===================================================================\n";
         player_->addToInventory(std::move(item));   
     } else {
-        std::cout << "Not enough money!\n";
+        std::cout << "Not enough money! Need $" << selected->getPrice() - (player_->getBalance()) << "\n";
     }
 }
 
@@ -90,7 +90,6 @@ void GameSimulator::openMultipleCases() {
     std::cout << "Total cost: $" << total_cost << "\n";
     
     if (player_->spendBalance(total_cost)) {
-        std::cout << "\nOpening " << count << " " << selected->getName() << "s...\n";
         for (int i = 0; i < count; ++i) {
             auto item = selected->open();
             std::cout << "Case " << i + 1 << ": " << item->get_info() << "\n";
@@ -206,4 +205,3 @@ void GameSimulator::run() {
             }
     }
 }
-
