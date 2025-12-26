@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <memory>
-#include <string>
 #include "Item.h"
 
 class IPlayer {
@@ -17,7 +16,6 @@ public:
     virtual void sellAllItems() = 0;
     virtual double getBalance() = 0;
     virtual int getCountOfItems() = 0;
-    virtual Item* getLatestItem() = 0; 
 };
 
 class Player : public IPlayer {
@@ -36,7 +34,6 @@ public:
     void sellAllItems() override;
     double getBalance() override;
     int getCountOfItems() override;
-    Item* getLatestItem() override;
     
 };
 
