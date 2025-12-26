@@ -1,6 +1,5 @@
 #include "Player.h"
 #include <iostream>
-#include <iomanip>
 #include <stdexcept>
 
 Player::Player(double start_balance) : balance_(start_balance) {}
@@ -75,9 +74,5 @@ int Player::getCountOfItems() {
 }
 
 
-Item* Player::getLatestItem() {
-    if (inventory_.empty()) {
-        return nullptr;
-    }
-    return inventory_.back().get();
-}
+
+
